@@ -11,8 +11,8 @@ import 'models/wifi_devices.dart';
 class MethodChannelEspblufi implements EspblufiPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('espblufi');
-  final logger = Logger('MethodChannelespblufi');
+  final methodChannel = const MethodChannel('Espblufi');
+  final logger = Logger('MethodChannelEspblufi');
 
   @override
   Future<String?> getPlatformVersion() async {
