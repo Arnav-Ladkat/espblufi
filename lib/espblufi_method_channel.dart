@@ -25,7 +25,7 @@ class MethodChannelEspblufi implements EspblufiPlatform {
   @override
   Future<void> sendCustomData(Uint8List data) async {
     final String? result =
-        await methodChannel.invokeMethod('sendCustomData', {'data', data});
+        await methodChannel.invokeMethod('sendCustomData', {'data': data});
     logger.info(result);
   }
 
