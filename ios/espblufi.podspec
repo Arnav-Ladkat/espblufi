@@ -15,9 +15,18 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
+  # Headers required for Blufi Library
+  # Start
+  s.private_header_files = 'Classes/BlufiLibrary/Security/openssl/include/openssl/*{.h,.cpp,.a}', 'Classes/BlufiLibrary/Security/openssl/include/*{.h,.cpp,.a}', 'Classes/BlufiLibrary/Security/openssl/*{.h,.cpp,.a}',
+  'Classes/BlufiLibrary/**/*{.h,.cpp,.a}'
+  #End
   s.dependency 'Flutter'
-  s.platform = :ios, '9.0'
-
+  # Platform and header config for Open SSL
+  # Start
+  s.platform = :ios, '11.0'
+  s.ios.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/../.symlinks/plugins/espblufi/ios/Classes/BlufiLibrary/Security/openssl/include" }
+  s.ios.vendored_libraries = 'Classes/BlufiLibrary/Security/openssl/*{.a}'
+  #End
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 end
